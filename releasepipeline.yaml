@@ -1,4 +1,6 @@
 ---
+pool:
+  name: Azure Pipelines
 steps:
   - task: AzureFunctionApp@2
     displayName: Azure Function App Deploy
@@ -6,3 +8,5 @@ steps:
       azureSubscription: Pay-As-You-Go (0c4bb8f8-40ca-43b1-b3a9-a059d5fc794f)
       appType: functionApp
       appName: fccdssnovelis
+      package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+      deploymentMethod: 'auto'
