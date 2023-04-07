@@ -45,8 +45,9 @@ steps:
   displayName: 'Publish Artifact: drop'
 
 - task: AzureFunctionApp@2
-  displayName: Azure Function App Deploy
   inputs:
-      azureSubscription: Pay-As-You-Go (0c4bb8f8-40ca-43b1-b3a9-a059d5fc794f)
-      appType: functionApp
-      appName: fccdssnovelis
+    azureSubscription: 'Pay-As-You-Go (0c4bb8f8-40ca-43b1-b3a9-a059d5fc794f)'
+    appType: 'functionApp'
+    appName: 'fccdssnovelis'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    deploymentMethod: 'auto'
