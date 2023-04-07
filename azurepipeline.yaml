@@ -44,10 +44,10 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
 
-- task: AzureFunctionApp@2
-  inputs:
-    azureSubscription: 'Pay-As-You-Go (0c4bb8f8-40ca-43b1-b3a9-a059d5fc794f)'
-    appType: 'functionApp'
-    appName: 'fccdssnovelis'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    deploymentMethod: 'auto'
+# - task: AzureFunctionApp@2
+#   inputs:
+#     azureSubscription: 'Pay-As-You-Go (0c4bb8f8-40ca-43b1-b3a9-a059d5fc794f)'
+#     appType: 'functionApp'
+#     appName: 'fccdssnovelis'
+#     package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+#     deploymentMethod: 'auto'
