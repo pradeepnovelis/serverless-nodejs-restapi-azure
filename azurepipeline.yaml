@@ -44,6 +44,21 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
 
+  - task: AzureCLI@2
+    displayName: "Create Network Access "
+    inputs:
+      azureSubscription: Pay-As-You-Go (0c4bb8f8-40ca-43b1-b3a9-a059d5fc794f)
+      scriptType: bash
+      scriptLocation: inlineScript
+      inlineScript: |
+        Current_IP=$(curl ipinfo.io/ip)
+        echo $Current_IP
+        sleep 1m
+        az functionapp config access-restriction add -g DefaultResourceGroup-EUS -n fccdssnovelis --rule-name devloper --action Allow --ip-address $Current_IP --priority 200
+        sleep 1m
+      addSpnToEnvironment: true
+      useGlobalConfig: true	 
+
 - task: AzureFunctionApp@1
   inputs:
     azureSubscription: Pay-As-You-Go (0c4bb8f8-40ca-43b1-b3a9-a059d5fc794f)
